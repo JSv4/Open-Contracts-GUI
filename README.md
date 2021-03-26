@@ -8,11 +8,11 @@ This is the GUI for the Open Contracts project open source contract labeling pla
 
 Clone the repository to a local directory using
 
-    git clone
+    git clone https://github.com/JSv4/Open-Contracts-GUI
 
 You'll want to create a .env file with configuration values (or, if you're deploying to Heroku, you'll need to enter these config variables into the Heroku control panel for the target app):
 
-    cd opencontracts_gui
+    cd open-contracts-gui
     nano .env 
 
 ## You will want to define the following env variables:
