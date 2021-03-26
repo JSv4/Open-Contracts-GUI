@@ -1,0 +1,640 @@
+TypeError: container is undefined
+TipContainer/<
+node_modules/react-pdf-highlighter/build/components/TipContainer.js:20
+
+  17 | const {
+  18 |   container
+  19 | } = this.refs;
+> 20 | const {
+     | ^  21 |   offsetHeight,
+  22 |   offsetWidth
+  23 | } = container;
+
+setTimeout handler*componentDidMount
+node_modules/react-pdf-highlighter/build/components/TipContainer.js:38
+
+  35 | }
+  36 | 
+  37 | componentDidMount() {
+> 38 |   setTimeout(this.updatePosition, 0);
+     | ^  39 | }
+  40 | 
+  41 | render() {
+
+commitLifeCycles
+node_modules/react-dom/cjs/react-dom.development.js:20663
+
+  20660 |   }
+  20661 | 
+  20662 |   {
+> 20663 |     instance.componentDidMount();
+        | ^  20664 |   }
+  20665 | } else {
+  20666 |   var prevProps = finishedWork.elementType === finishedWork.type ? current.memoizedProps : resolveDefaultProps(finishedWork.type, current.memoizedProps);
+
+commitLayoutEffects
+node_modules/react-dom/cjs/react-dom.development.js:23426
+
+  23423 | 
+  23424 | if (flags & (Update | Callback)) {
+  23425 |   var current = nextEffect.alternate;
+> 23426 |   commitLifeCycles(root, current, nextEffect);
+        | ^  23427 | }
+  23428 | 
+  23429 | {
+
+callCallback
+node_modules/react-dom/cjs/react-dom.development.js:3945
+
+  3942 | function callCallback() {
+  3943 |   didCall = true;
+  3944 |   restoreAfterDispatch();
+> 3945 |   func.apply(context, funcArgs);
+       | ^  3946 |   didError = false;
+  3947 | } // Create a global error event handler. We use this to capture the value
+  3948 | // that was thrown. It's possible that this error handler will fire more
+
+invokeGuardedCallbackDev
+node_modules/react-dom/cjs/react-dom.development.js:3994
+
+  3991 | // errors, it will trigger our global error handler.
+  3992 | 
+  3993 | evt.initEvent(evtType, false, false);
+> 3994 | fakeNode.dispatchEvent(evt);
+       | ^  3995 | 
+  3996 | if (windowEventDescriptor) {
+  3997 |   Object.defineProperty(window, 'event', windowEventDescriptor);
+
+invokeGuardedCallback
+node_modules/react-dom/cjs/react-dom.development.js:4056
+
+  4053 | function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
+  4054 |   hasError = false;
+  4055 |   caughtError = null;
+> 4056 |   invokeGuardedCallbackImpl$1.apply(reporter, arguments);
+  4057 | }
+  4058 | /**
+  4059 |  * Same as invokeGuardedCallback, but instead of returning an error, it stores
+
+commitRootImpl
+node_modules/react-dom/cjs/react-dom.development.js:23151
+
+  23148 | 
+  23149 | do {
+  23150 |   {
+> 23151 |     invokeGuardedCallback(null, commitLayoutEffects, null, root, lanes);
+        | ^  23152 | 
+  23153 |     if (hasCaughtError()) {
+  23154 |       if (!(nextEffect !== null)) {
+
+unstable_runWithPriority
+node_modules/scheduler/cjs/scheduler.development.js:646
+
+  643 | currentPriorityLevel = priorityLevel;
+  644 | 
+  645 | try {
+> 646 |   return eventHandler();
+      | ^  647 | } finally {
+  648 |   currentPriorityLevel = previousPriorityLevel;
+  649 | }
+
+runWithPriority$1
+node_modules/react-dom/cjs/react-dom.development.js:11276
+
+  11273 | 
+  11274 | function runWithPriority$1(reactPriorityLevel, fn) {
+  11275 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+> 11276 |   return Scheduler_runWithPriority(priorityLevel, fn);
+  11277 | }
+  11278 | function scheduleCallback(reactPriorityLevel, callback, options) {
+  11279 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+
+commitRoot
+node_modules/react-dom/cjs/react-dom.development.js:22990
+
+  22987 | 
+  22988 | function commitRoot(root) {
+  22989 |   var renderPriorityLevel = getCurrentPriorityLevel();
+> 22990 |   runWithPriority$1(ImmediatePriority$1, commitRootImpl.bind(null, root, renderPriorityLevel));
+  22991 |   return null;
+  22992 | }
+  22993 | 
+
+performSyncWorkOnRoot
+node_modules/react-dom/cjs/react-dom.development.js:22329
+
+  22326 | var finishedWork = root.current.alternate;
+  22327 | root.finishedWork = finishedWork;
+  22328 | root.finishedLanes = lanes;
+> 22329 | commitRoot(root); // Before exiting, make sure there's a callback scheduled for the next
+        | ^  22330 | // pending level.
+  22331 | 
+  22332 | ensureRootIsScheduled(root, now());
+
+flushSyncCallbackQueueImpl/<
+node_modules/react-dom/cjs/react-dom.development.js:11327
+
+  11324 |     var callback = _queue[i];
+  11325 | 
+  11326 |     do {
+> 11327 |       callback = callback(_isSync2);
+        | ^  11328 |     } while (callback !== null);
+  11329 |   }
+  11330 | });
+
+unstable_runWithPriority
+node_modules/scheduler/cjs/scheduler.development.js:646
+
+  643 | currentPriorityLevel = priorityLevel;
+  644 | 
+  645 | try {
+> 646 |   return eventHandler();
+      | ^  647 | } finally {
+  648 |   currentPriorityLevel = previousPriorityLevel;
+  649 | }
+
+runWithPriority$1
+node_modules/react-dom/cjs/react-dom.development.js:11276
+
+  11273 | 
+  11274 | function runWithPriority$1(reactPriorityLevel, fn) {
+  11275 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+> 11276 |   return Scheduler_runWithPriority(priorityLevel, fn);
+  11277 | }
+  11278 | function scheduleCallback(reactPriorityLevel, callback, options) {
+  11279 |   var priorityLevel = reactPriorityToSchedulerPriority(reactPriorityLevel);
+
+flushSyncCallbackQueueImpl
+node_modules/react-dom/cjs/react-dom.development.js:11322
+
+  11319 | try {
+  11320 |   var _isSync2 = true;
+  11321 |   var _queue = syncQueue;
+> 11322 |   runWithPriority$1(ImmediatePriority$1, function () {
+        | ^  11323 |     for (; i < _queue.length; i++) {
+  11324 |       var callback = _queue[i];
+  11325 | 
+
+flushSyncCallbackQueue
+node_modules/react-dom/cjs/react-dom.development.js:11309
+
+  11306 |     Scheduler_cancelCallback(node);
+  11307 |   }
+  11308 | 
+> 11309 |   flushSyncCallbackQueueImpl();
+  11310 | }
+  11311 | 
+  11312 | function flushSyncCallbackQueueImpl() {
+
+batchedEventUpdates$1
+node_modules/react-dom/cjs/react-dom.development.js:22403
+
+  22400 |     if (executionContext === NoContext) {
+  22401 |       // Flush the immediate callbacks that were scheduled during this batch
+  22402 |       resetRenderTimer();
+> 22403 |       flushSyncCallbackQueue();
+  22404 |     }
+  22405 |   }
+  22406 | }
+
+batchedEventUpdates
+node_modules/react-dom/cjs/react-dom.development.js:3745
+
+  3742 | isBatchingEventUpdates = true;
+  3743 | 
+  3744 | try {
+> 3745 |   return batchedEventUpdatesImpl(fn, a, b);
+       | ^  3746 | } finally {
+  3747 |   isBatchingEventUpdates = false;
+  3748 |   finishEventHandler();
+
+dispatchEventForPluginEventSystem
+node_modules/react-dom/cjs/react-dom.development.js:8507
+
+  8504 |     }
+  8505 |   }
+  8506 | 
+> 8507 |   batchedEventUpdates(function () {
+  8508 |     return dispatchEventsForPlugins(domEventName, eventSystemFlags, nativeEvent, ancestorInst);
+  8509 |   });
+  8510 | }
+
+attemptToDispatchEvent
+node_modules/react-dom/cjs/react-dom.development.js:6005
+
+  6002 |     }
+  6003 |   }
+  6004 | 
+> 6005 |   dispatchEventForPluginEventSystem(domEventName, eventSystemFlags, nativeEvent, targetInst, targetContainer); // We're not blocked on anything.
+  6006 | 
+  6007 |   return null;
+  6008 | }
+
+dispatchEvent
+node_modules/react-dom/cjs/react-dom.development.js:5924
+
+  5921 |   return;
+  5922 | }
+  5923 | 
+> 5924 | var blockedOn = attemptToDispatchEvent(domEventName, eventSystemFlags, targetContainer, nativeEvent);
+       | ^  5925 | 
+  5926 | if (blockedOn === null) {
+  5927 |   // We successfully dispatched this event.
+
+unstable_runWithPriority
+node_modules/scheduler/cjs/scheduler.development.js:646
+
+  643 | currentPriorityLevel = priorityLevel;
+  644 | 
+  645 | try {
+> 646 |   return eventHandler();
+      | ^  647 | } finally {
+  648 |   currentPriorityLevel = previousPriorityLevel;
+  649 | }
+
+dispatchUserBlockingUpdate
+node_modules/react-dom/cjs/react-dom.development.js:5894
+
+  5891 | 
+  5892 | function dispatchUserBlockingUpdate(domEventName, eventSystemFlags, container, nativeEvent) {
+  5893 |   {
+> 5894 |     runWithPriority(UserBlockingPriority$1, dispatchEvent.bind(null, domEventName, eventSystemFlags, container, nativeEvent));
+  5895 |   }
+  5896 | }
+  5897 | 
+
+EventListener.handleEvent*addEventBubbleListener
+node_modules/react-dom/cjs/react-dom.development.js:6011
+
+  6008 | }
+  6009 | 
+  6010 | function addEventBubbleListener(target, eventType, listener) {
+> 6011 |   target.addEventListener(eventType, listener, false);
+  6012 |   return listener;
+  6013 | }
+  6014 | function addEventCaptureListener(target, eventType, listener) {
+
+addTrappedEventListener
+node_modules/react-dom/cjs/react-dom.development.js:8411
+
+  8408 |     if (isPassiveListener !== undefined) {
+  8409 |       unsubscribeListener = addEventBubbleListenerWithPassiveFlag(targetContainer, domEventName, listener, isPassiveListener);
+  8410 |     } else {
+> 8411 |       unsubscribeListener = addEventBubbleListener(targetContainer, domEventName, listener);
+  8412 |     }
+  8413 |   }
+  8414 | }
+
+listenToNativeEvent
+node_modules/react-dom/cjs/react-dom.development.js:8374
+
+  8371 |       eventSystemFlags |= IS_CAPTURE_PHASE;
+  8372 |     }
+  8373 | 
+> 8374 |     addTrappedEventListener(target, domEventName, eventSystemFlags, isCapturePhaseListener);
+  8375 |     listenerSet.add(listenerSetKey);
+  8376 |   }
+  8377 | }
+
+listenToAllSupportedEvents/<
+node_modules/react-dom/cjs/react-dom.development.js:8326
+
+  8323 | rootContainerElement[listeningMarker] = true;
+  8324 | allNativeEvents.forEach(function (domEventName) {
+  8325 |   if (!nonDelegatedEvents.has(domEventName)) {
+> 8326 |     listenToNativeEvent(domEventName, false, rootContainerElement, null);
+       | ^  8327 |   }
+  8328 | 
+  8329 |   listenToNativeEvent(domEventName, true, rootContainerElement, null);
+
+listenToAllSupportedEvents
+node_modules/react-dom/cjs/react-dom.development.js:8324
+
+  8321 | }
+  8322 | 
+  8323 | rootContainerElement[listeningMarker] = true;
+> 8324 | allNativeEvents.forEach(function (domEventName) {
+       | ^  8325 |   if (!nonDelegatedEvents.has(domEventName)) {
+  8326 |     listenToNativeEvent(domEventName, false, rootContainerElement, null);
+  8327 |   }
+
+createRootImpl
+node_modules/react-dom/cjs/react-dom.development.js:25887
+
+  25884 | 
+  25885 | {
+  25886 |   var rootContainerElement = container.nodeType === COMMENT_NODE ? container.parentNode : container;
+> 25887 |   listenToAllSupportedEvents(rootContainerElement);
+        | ^  25888 | }
+  25889 | 
+  25890 | if (mutableSources) {
+
+ReactDOMBlockingRoot
+node_modules/react-dom/cjs/react-dom.development.js:25835
+
+  25832 | }
+  25833 | 
+  25834 | function ReactDOMBlockingRoot(container, tag, options) {
+> 25835 |   this._internalRoot = createRootImpl(container, tag, options);
+  25836 | }
+  25837 | 
+  25838 | ReactDOMRoot.prototype.render = ReactDOMBlockingRoot.prototype.render = function (children) {
+
+createLegacyRoot
+node_modules/react-dom/cjs/react-dom.development.js:25900
+
+  25897 |   return root;
+  25898 | }
+  25899 | function createLegacyRoot(container, options) {
+> 25900 |   return new ReactDOMBlockingRoot(container, LegacyRoot, options);
+  25901 | }
+  25902 | function isValidContainer(node) {
+  25903 |   return !!(node && (node.nodeType === ELEMENT_NODE || node.nodeType === DOCUMENT_NODE || node.nodeType === DOCUMENT_FRAGMENT_NODE || node.nodeType === COMMENT_NODE && node.nodeValue === ' react-mount-point-unstable '));
+
+legacyCreateRootFromDOMContainer
+node_modules/react-dom/cjs/react-dom.development.js:25981
+
+  25978 |     }
+  25979 |   }
+  25980 | 
+> 25981 |   return createLegacyRoot(container, shouldHydrate ? {
+  25982 |     hydrate: true
+  25983 |   } : undefined);
+  25984 | }
+
+legacyRenderSubtreeIntoContainer
+node_modules/react-dom/cjs/react-dom.development.js:26007
+
+  26004 | 
+  26005 | if (!root) {
+  26006 |   // Initial mount
+> 26007 |   root = container._reactRootContainer = legacyCreateRootFromDOMContainer(container, forceHydrate);
+        | ^  26008 |   fiberRoot = root._internalRoot;
+  26009 | 
+  26010 |   if (typeof callback === 'function') {
+
+render
+node_modules/react-dom/cjs/react-dom.development.js:26103
+
+  26100 |     }
+  26101 |   }
+  26102 | 
+> 26103 |   return legacyRenderSubtreeIntoContainer(null, element, container, false, callback);
+  26104 | }
+  26105 | function unstable_renderSubtreeIntoContainer(parentComponent, element, containerNode, callback) {
+  26106 |   if (!isValidContainer(containerNode)) {
+
+renderHighlights
+src/components/annotator/PdfHighlighter.js:233
+
+  230 | const highlightLayer = this.findOrCreateHighlightLayer(pageNumber);
+  231 | 
+  232 | if (highlightLayer) {
+> 233 |   ReactDom.render(
+      | ^  234 |     <div>
+  235 |       {(highlightsByPage[String(pageNumber)] || []).map(
+  236 |         ({ position, id, ...highlight }, index) => {
+
+PdfHighlighter/this.onTextLayerRendered
+src/components/annotator/PdfHighlighter.js:329
+
+  326 | };
+  327 | 
+  328 | onTextLayerRendered = () => {
+> 329 |   this.renderHighlights();
+      | ^  330 | };
+  331 | 
+  332 | scrollTo = (highlight) => {
+
+dispatch/<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/ui_utils.js:850
+
+  847 | // viewer components time to handle events and update their state first.
+  848 | if (externalListeners) {
+  849 |   externalListeners.forEach(function (listener) {
+> 850 |     listener.apply(null, args);
+      | ^  851 |   });
+  852 |   externalListeners = null;
+  853 | }
+
+dispatch
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/ui_utils.js:849
+
+  846 | // Dispatch any "external" listeners *after* the internal ones, to give the
+  847 | // viewer components time to handle events and update their state first.
+  848 | if (externalListeners) {
+> 849 |   externalListeners.forEach(function (listener) {
+      | ^  850 |     listener.apply(null, args);
+  851 |   });
+  852 |   externalListeners = null;
+
+_finishRendering
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/text_layer_builder.js:77
+
+  74 |   this.textLayerDiv.appendChild(endOfContent);
+  75 | }
+  76 | 
+> 77 | this.eventBus.dispatch("textlayerrendered", {
+     | ^  78 |   source: this,
+  79 |   pageNumber: this.pageNumber,
+  80 |   numTextDivs: this.textDivs.length,
+
+render/<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/text_layer_builder.js:111
+
+  108 | this.textLayerRenderTask.promise.then(
+  109 |   () => {
+  110 |     this.textLayerDiv.appendChild(textLayerFrag);
+> 111 |     this._finishRendering();
+      | ^  112 |     this._updateMatches();
+  113 |   },
+  114 |   function (reason) {
+
+promise callback*render
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/text_layer_builder.js:108
+
+  105 |   timeout,
+  106 |   enhanceTextSelection: this.enhanceTextSelection,
+  107 | });
+> 108 | this.textLayerRenderTask.promise.then(
+      | ^  109 |   () => {
+  110 |     this.textLayerDiv.appendChild(textLayerFrag);
+  111 |     this._finishRendering();
+
+draw/resultPromise</<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/pdf_page_view.js:554
+
+  551 |         normalizeWhitespace: true,
+  552 |       });
+  553 |       textLayer.setTextContentStream(readableStream);
+> 554 |       textLayer.render();
+      | ^  555 |     }
+  556 |   });
+  557 | },
+
+promise callback*draw/resultPromise<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/pdf_page_view.js:548
+
+  545 | 
+  546 | const resultPromise = paintTask.promise.then(
+  547 |   function () {
+> 548 |     return finishPaintTask(null).then(function () {
+      | ^  549 |       if (textLayer) {
+  550 |         const readableStream = pdfPage.streamTextContent({
+  551 |           normalizeWhitespace: true,
+
+promise callback*draw
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/pdf_page_view.js:546
+
+  543 | paintTask.onRenderContinue = renderContinueCallback;
+  544 | this.paintTask = paintTask;
+  545 | 
+> 546 | const resultPromise = paintTask.promise.then(
+      | ^  547 |   function () {
+  548 |     return finishPaintTask(null).then(function () {
+  549 |       if (textLayer) {
+
+renderView
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/pdf_rendering_queue.js:167
+
+  164 |   break;
+  165 | case RenderingStates.INITIAL:
+  166 |   this.highestPriorityPage = view.renderingId;
+> 167 |   view
+      | ^  168 |     .draw()
+  169 |     .finally(() => {
+  170 |       this.renderHighestPriority();
+
+forceRendering/<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:1131
+
+  1128 | );
+  1129 | if (pageView) {
+  1130 |   this._ensurePdfPageLoaded(pageView).then(() => {
+> 1131 |     this.renderingQueue.renderView(pageView);
+       | ^  1132 |   });
+  1133 |   return true;
+  1134 | }
+
+promise callback*forceRendering
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:1130
+
+  1127 |   scrollAhead
+  1128 | );
+  1129 | if (pageView) {
+> 1130 |   this._ensurePdfPageLoaded(pageView).then(() => {
+       | ^  1131 |     this.renderingQueue.renderView(pageView);
+  1132 |   });
+  1133 |   return true;
+
+renderHighestPriority
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/pdf_rendering_queue.js:71
+
+  68 | }
+  69 | 
+  70 | // Pages have a higher priority than thumbnails, so check them first.
+> 71 | if (this.pdfViewer.forceRendering(currentlyVisiblePages)) {
+     | ^  72 |   return;
+  73 | }
+  74 | // No pages needed rendering, so check thumbnails.
+
+update
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:969
+
+  966 | const newCacheSize = Math.max(DEFAULT_CACHE_SIZE, 2 * numVisiblePages + 1);
+  967 | this._buffer.resize(newCacheSize, visiblePages);
+  968 | 
+> 969 | this.renderingQueue.renderHighestPriority(visible);
+      | ^  970 | 
+  971 | this._updateHelper(visiblePages); // Run any class-specific update code.
+  972 | 
+
+_setScaleUpdatePages
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:704
+
+  701 |   });
+  702 | 
+  703 |   if (this.defaultRenderingQueue) {
+> 704 |     this.update();
+      | ^  705 |   }
+  706 | }
+  707 | 
+
+_setScale
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:758
+
+  755 |         );
+  756 |         return;
+  757 |     }
+> 758 |     this._setScaleUpdatePages(scale, value, noScroll, /* preset = */ true);
+      | ^  759 |   }
+  760 | }
+  761 | 
+
+set currentScaleValue
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:343
+
+  340 |   if (!this.pdfDocument) {
+  341 |     return;
+  342 |   }
+> 343 |   this._setScale(val, false);
+      | ^  344 | }
+  345 | 
+  346 | /**
+
+PdfHighlighter/this.handleScaleValue
+src/components/annotator/PdfHighlighter.js:493
+
+  490 | 
+  491 | handleScaleValue = () => {
+  492 |   if (this.viewer) {
+> 493 |     this.viewer.currentScaleValue = this.props.pdfScaleValue; //"page-width";
+      | ^  494 |   }
+  495 | };
+  496 | 
+
+PdfHighlighter/this.onDocumentReady
+src/components/annotator/PdfHighlighter.js:371
+
+  368 | onDocumentReady = () => {
+  369 |   const { scrollRef } = this.props;
+  370 | 
+> 371 |   this.handleScaleValue();
+      | ^  372 | 
+  373 |   scrollRef(this.scrollTo);
+  374 | };
+
+dispatch/<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/ui_utils.js:850
+
+  847 | // viewer components time to handle events and update their state first.
+  848 | if (externalListeners) {
+  849 |   externalListeners.forEach(function (listener) {
+> 850 |     listener.apply(null, args);
+      | ^  851 |   });
+  852 |   externalListeners = null;
+  853 | }
+
+dispatch
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/ui_utils.js:849
+
+  846 | // Dispatch any "external" listeners *after* the internal ones, to give the
+  847 | // viewer components time to handle events and update their state first.
+  848 | if (externalListeners) {
+> 849 |   externalListeners.forEach(function (listener) {
+      | ^  850 |     listener.apply(null, args);
+  851 |   });
+  852 |   externalListeners = null;
+
+setDocument/<
+/home/jman/source/open_contracts/pdfjs-dist/web/pdf_viewer/web/base_viewer.js:577
+
+  574 |   }
+  575 | });
+  576 | 
+> 577 | this.eventBus.dispatch("pagesinit", { source: this });
+      | ^  578 | 
+  579 | if (this.defaultRenderingQueue) {
+  580 |   this.update();
+
+This screen is visible only in development. It will not appear if the app crashes in production.

@@ -1,0 +1,90 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.react-pdf__Page__canvas {
+  margin: 0 auto;
+  height: 80vh !important;
+}
+
+[data-custom-class='body'], [data-custom-class='body'] * {
+  background: transparent !important;
+}
+
+[data-custom-class='title'], [data-custom-class='title'] * {
+  font-family: Arial !important;
+font-size: 26px !important;
+color: #000000 !important;
+
+}
+[data-custom-class='subtitle'], [data-custom-class='subtitle'] * {
+  font-family: Arial !important;
+color: #595959 !important;
+font-size: 14px !important;
+}
+[data-custom-class='heading_1'], [data-custom-class='heading_1'] * {
+  font-family: Arial !important;
+font-size: 19px !important;
+color: #000000 !important;
+}
+[data-custom-class='heading_2'], [data-custom-class='heading_2'] * {
+  font-family: Arial !important;
+font-size: 17px !important;
+color: #000000 !important;
+}
+[data-custom-class='body_text'], [data-custom-class='body_text'] * {
+  color: #595959 !important;
+font-size: 14px !important;
+font-family: Arial !important;
+}
+[data-custom-class='link'], [data-custom-class='link'] * {
+  color: #3030F1 !important;
+font-size: 14px !important;
+font-family: Arial !important;
+word-break: break-word !important;
+}
+
+ul {
+  list-style-type: square;
+}
+ul > li > ul {
+  list-style-type: circle;
+}
+ul > li > ul > li > ul {
+  list-style-type: square;
+}
+ol li {
+  font-family: Arial ;
+}

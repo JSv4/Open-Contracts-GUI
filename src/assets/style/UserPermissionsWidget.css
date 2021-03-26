@@ -1,0 +1,14 @@
+.selected_accordion {
+    transition: max-height 0.5s ease-in;
+    max-height: 25vh;
+    opacity: 1;
+    margin-top: 1rem;
+  }
+
+.selected_accordion.hidden {
+    transition: max-height 0.5s ease-out;
+    margin-top: 0px;
+    max-height: 0px;
+    opacity: 0;
+    pointer-events:none;
+}

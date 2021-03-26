@@ -1,0 +1,2 @@
+highlightTransform - builds the actual highlight components on the page when called by PdfHighlight. Passed into PdfHighlighter by Annotator.
+renderHighlights - In PdfHighlighter. Calls highlightTransform. Here is where I "flatte" or split out the annotations positions array and split it by page. 

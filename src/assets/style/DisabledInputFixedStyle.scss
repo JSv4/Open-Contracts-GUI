@@ -1,0 +1,27 @@
+.ui.form .disabled.field {
+    opacity: 1.00;
+
+    label {
+        opacity: 1;
+    }
+
+    div.ui.disabled.input {
+        opacity: 1;
+
+        input[disabled] {
+            background-color: #eee;
+            opacity: 1;
+        }
+        
+    }
+
+    div.ui.disabled.textarea {
+        opacity: 1;
+
+        textarea[disabled] {
+            background-color: #eee;
+            opacity: 1;
+        }
+        
+    }
+}
